@@ -88,6 +88,8 @@ export default async function HomePage() {
     .eq("is_visible", true)
     .order("sort_order", { ascending: true });
 
+  if (!sections?.length) return <StorefrontFallback />;
+
   return (
     <div className="flex flex-col gap-0">
       {(sections ?? []).map((section) => (
